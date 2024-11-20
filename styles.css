@@ -58,7 +58,7 @@ header nav ul li a {
 .content {
     flex-grow: 1;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* Make the feed 3 times wider than sidebar and profile */
+    grid-template-columns: 1fr 1fr 1fr; /* Make the feed 3 times wider than sidebar and profile */
     gap: 20px;
     padding: 20px;
     overflow: auto;
