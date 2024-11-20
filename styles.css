@@ -1,0 +1,363 @@
+/* Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    background-image: url('https://images.unsplash.com/photo-1556856425-366d6618905d?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    background-color: #002c43;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Content Layout */
+.content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /* Make the feed 3 times wider than sidebar and profile */
+    gap: 20px;
+    padding: 20px;
+    overflow: auto;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* Sidebar and Profile Section Styling */
+.sidebar, .profile-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section {
+    color:#0d95e8;
+    text-align: center;
+    padding: 20px;
+    background-color: aliceblue;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.1);
+    /* Ensure the profile section has proper spacing */
+    min-width: 200px; /* Minimum width to prevent the profile from shrinking too small */
+}
+
+.profile-pic {
+    width: clamp(80px, 15vw, 100px);
+    height: clamp(80px, 15vw, 100px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Feed */
+.feed {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f8fa;
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    max-width: 100%; /* Ensure feed doesn't exceed its container */
+    width: 100%; /* Make sure feed takes full width of its container */
+}
+
+/* Tweet Box */
+.tweet-box {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the tweet-box doesn't overflow the parent container */
+    box-sizing: border-box; /* Prevent padding from causing overflow */
+    overflow: hidden; /* Hide overflow if content exceeds box size */
+}
+
+.tweet-box textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    resize: none;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+.tweet-box button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Individual Tweet Styling */
+.tweet {
+    background-color: #ffffff;
+    padding: clamp(10px, 2vw, 15px);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.tweet:hover {
+    transform: scale(1.02);
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #657786;
+}
+
+.tweet-header strong {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: #333;
+    font-weight: bold;
+}
+
+.tweet-header span {
+    font-size: clamp(12px, 1.2vw, 14px);
+    color: #8899a6;
+}
+
+.tweet p {
+    font-size: clamp(14px, 1.6vw, 15px);
+    color: #333;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.tweet-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #657786;
+}
+
+.tweet-actions .action {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tweet-actions .action:hover {
+    color: #1da1f2;
+}
+
+/* Frosted Glass Effect */
+.frosted-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    color: white;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-btn {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #0d95e8;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #002c43;
+    color: white;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* User Icon */
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Sidebar, Feed, Profile Animations */
+.sidebar, .feed, .profile-section {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideIn 0.6s forwards ease-out;
+}
+
+.feed {
+    transform: translateX(100%);
+}
+
+.profile-section {
+    transform: translateY(100%);
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFeed {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInProfile {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.feed {
+    animation: slideInFeed 0.6s forwards ease-out;
+}
+
+.profile-section {
+    animation: slideInProfile 0.6s forwards ease-out;
+}
+
+
+
+/* Adjust Feed Section on smaller screens */
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    /* Adjust Feed Section for smaller screens */
+    .feed {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .profile-section {
+        min-width: 0; /* Allow profile section to be more flexible */
+    }
+}
+
+/* Ensure the Sidebar, Feed, and Profile don't overflow */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr; /* Full-width layout on mobile */
+    }
+}
