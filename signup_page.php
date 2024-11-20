@@ -10,7 +10,11 @@
 <body>
 
 <div class="container">
+<?php include 'templates/navbar.php' ?>
 
+<div class="content">
+
+<div></div>
 
 <div class="form-container">
     <h2>Create Account</h2>
@@ -25,6 +29,10 @@
         </div>
         <button type="submit" class="submit-btn">Sign Up</button>
     </form>
+</div>
+
+<div> </div>
+
 </div>
 
 </div>

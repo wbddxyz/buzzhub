@@ -2,19 +2,7 @@
 
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "buzzhub";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+include 'db_connect.php'
 ?>
 
 
@@ -39,7 +27,7 @@ echo "Connected successfully";
 <?php include 'templates/navbar.php' ?>
 
 
-<div class="container">
+<div class="container content">
 
 
 

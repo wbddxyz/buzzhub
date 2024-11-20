@@ -16,7 +16,7 @@
                 <li><a href="#">Notifications</a></li>
                 <li><a href="profilepage.php">Profile</a></li>
                 <li><a href="login_page.php">Login<i class="fa fa-sign-in" aria-hidden="true"></a></i>
-                <li><a href="signup.html">Signup</a>
+                <li><a href="signup_page.php">Signup</a>
             </ul>
         </nav>
     </header>

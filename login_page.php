@@ -9,7 +9,12 @@
 
 <?php include 'templates/navbar.php' ?>
 
-<div class="container">
+<div class="container content">
+
+
+<div></div>
+
+
 
 <div class="form-container">
     <h2>User Login</h2>

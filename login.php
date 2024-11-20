@@ -16,8 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        // Debugging: Print hashed password
-        echo "Password in database: " . $user['password'] . "<br>";
+     
 
         // Check if the password matches
         if (password_verify($password, $user['password'])) {
